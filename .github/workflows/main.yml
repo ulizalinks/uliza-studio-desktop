@@ -1,1 +1,35 @@
+name: Uliza Studio desktop
 
+on:
+  push:
+    tags: ['studio-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read version
+        id: v
+        shell: bash
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+      - run: npm install --no-audit --no-fund
+      - name: Build installer
+        run: npx electron-builder --win --publish never
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: studio-v${{ steps.v.outputs.version }}
+          name: Uliza Studio ${{ steps.v.outputs.version }}
+          make_latest: true
+          files: |
+            dist/Uliza-Studio-Setup.exe
+            dist/Uliza-Studio-Setup.exe.blockmap
+            dist/latest.yml
