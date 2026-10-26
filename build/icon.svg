@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#fff8f3"/>
+  <!-- millimetre ruler along the top and left edges -->
+  <g stroke="#e8b9a6" stroke-width="6" stroke-linecap="round">
+    <path d="M150 58v22M190 58v14M230 58v22M270 58v14M310 58v22M350 58v14M390 58v22"/>
+    <path d="M58 150h22M58 190h14M58 230h22M58 270h14M58 310h22M58 350h14M58 390h22"/>
+  </g>
+  <rect x="122" y="122" width="168" height="168" rx="34" fill="#d6402f" transform="rotate(-8 206 206)"/>
+  <circle cx="316" cy="300" r="96" fill="#1d1b2b"/>
+  <path d="M118 424 L214 296 L310 424Z" fill="#f0874a" stroke="#fff8f3" stroke-width="14" stroke-linejoin="round"/>
+  <!-- selection handle: the "design" cursor -->
+  <rect x="382" y="378" width="34" height="34" rx="8" fill="#fff8f3" stroke="#d6402f" stroke-width="8"/>
+</svg>
